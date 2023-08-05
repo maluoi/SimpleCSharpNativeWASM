@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+
+		<RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+		<WasmMainJSPath>wwwroot/main.js</WasmMainJSPath>
+		
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<!--<PublishTrimmed>true</PublishTrimmed>-->
+		<TrimMode>full</TrimMode>
+		<!--<RunAOTCompilation>true</RunAOTCompilation>-->
+		<WasmEmitSymbolMap>true</WasmEmitSymbolMap>
+		<WasmEmitSourceMap>true</WasmEmitSourceMap>
+		<WasmNativeDebugSymbols>true</WasmNativeDebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<WasmExtraFilesToDeploy Include="wwwroot/*.js" />
+		<WasmExtraFilesToDeploy Include="wwwroot/*.css" />
+		<WasmExtraFilesToDeploy Include="wwwroot/index.html" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<NativeFileReference Include="capi.cpp" />
+	</ItemGroup>
+
+</Project>
